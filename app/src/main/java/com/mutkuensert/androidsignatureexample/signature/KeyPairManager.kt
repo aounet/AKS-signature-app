@@ -125,14 +125,16 @@ open class KeyPairManager(
     }
 
     private fun KeyGenParameterSpec.Builder.setBiometricAuthRequired() {
-        setUserAuthenticationRequired(true)
-
+        setUserAuthenticationRequired(false)
+        /*
+        Commenting out this part as we want to remove biometric binding in general. Setting the setUserAuthenticationRequired to 'false' as well.
+        
         if (Build.VERSION.SDK_INT >= 30) {
             setUserAuthenticationParameters(1, KeyProperties.AUTH_BIOMETRIC_STRONG)
         } else {
             @Suppress("DEPRECATION")
             setUserAuthenticationValidityDurationSeconds(1)
-        }
+        } */
     }
 
     /**
